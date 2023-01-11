@@ -1,0 +1,1 @@
+D:\Work\Moviecompose\buildSrc\build\classes\kotlin\main\Common.class;D:\Work\Moviecompose\buildSrc\build\classes\kotlin\main\Dependencies.class;D:\Work\Moviecompose\buildSrc\build\classes\kotlin\main\Versions.class;D:\Work\Moviecompose\buildSrc\build\classes\kotlin\main\test.class

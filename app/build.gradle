@@ -1,0 +1,114 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.raldes.movie_compose'
+    compileSdk Common.compileSdk
+
+    defaultConfig {
+        applicationId "com.raldes.movie_compose"
+        minSdk Common.minSdk
+        targetSdk Common.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+
+dependencies {
+
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
+    // Hilt
+    implementation Dependencies.hilt
+    kapt Dependencies.hiltCompiler
+
+    // Room
+    implementation Dependencies.room
+    implementation Dependencies.roomKtx
+    kapt Dependencies.roomCompiler
+
+    implementation Dependencies.androidX
+    implementation Dependencies.androidActivity
+    implementation Dependencies.androidAnnottaion
+    implementation Dependencies.androidAppCompat
+    implementation Dependencies.lifecycle
+
+    // Compose
+    implementation Dependencies.compose
+    implementation Dependencies.composeTooling
+    implementation Dependencies.composeToolingPreview
+    implementation Dependencies.materialCompose
+    implementation Dependencies.materialComposeIcon
+    implementation Dependencies.materialExtended
+    implementation Dependencies.liveData
+    implementation Dependencies.viewmodel
+    implementation Dependencies.activityCompose
+    implementation Dependencies.navigationCompose
+    implementation Dependencies.navigationHiltCompose
+    implementation Dependencies.pagingCompose
+    implementation Dependencies.coil
+
+    // Google
+    implementation Dependencies.materialGoogle
+    implementation Dependencies.flowlayout
+    implementation Dependencies.glide
+    implementation Dependencies.insets
+    implementation Dependencies.systemuicontroller
+
+    // Networking
+    implementation Dependencies.retrofit
+    implementation Dependencies.logging
+    implementation Dependencies.gsonConverter
+
+    // Utils
+    implementation Dependencies.threeten
+    implementation Dependencies.timber
+
+    // Testing
+    testImplementation Dependencies.roomTesting
+    testImplementation Dependencies.hiltAndroidTesting
+    kaptTest Dependencies.hiltCompilerTest
+    androidTestImplementation Dependencies.daggerHiltTest
+    kaptAndroidTest Dependencies.daggerHiltCompilerTest
+}
