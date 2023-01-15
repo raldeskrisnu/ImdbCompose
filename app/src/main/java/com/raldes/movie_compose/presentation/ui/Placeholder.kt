@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LocalMovies
 import androidx.compose.material.icons.filled.MovieFilter
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +23,7 @@ fun Placeholder(modifier: Modifier = Modifier) {
         color = white10),
         contentAlignment = Alignment.Center) {
         
-        Icon(imageVector = Icons.Default.MovieFilter,
+        Icon(imageVector = Icons.Default.LocalMovies,
             contentDescription = null,
             tint = MaterialTheme.colors.primary)
     }

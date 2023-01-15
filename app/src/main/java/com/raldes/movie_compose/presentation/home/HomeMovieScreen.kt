@@ -25,7 +25,9 @@ fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel()) {
                 items = lazyViewModel,
                 key = { item -> item.id }
             ) { item ->
-
+                if (item != null) {
+                    HomeItem(movie = item)
+                }
             }
         }
     })

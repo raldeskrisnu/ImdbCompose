@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Movie-compose</string>
+    <string name="release_date">Release date: %s</string>
+    <string name="vote_average">Vote average: %.1f</string>
+    <string name="vote_count">Vote count: %d</string>
 </resources>
