@@ -1,9 +1,9 @@
 package com.raldes.movie_compose.presentation.home
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -16,7 +16,17 @@ import kotlinx.coroutines.FlowPreview
 @Preview
 fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel()) {
     Scaffold(topBar = {
-        TopAppBar(title = { Text(text = "Home") })
+        TopAppBar(
+            title = { Text(text = "Home") },
+            actions = {
+                IconButton(onClick = {
+                    //on click
+                } ) {
+                    Icon(Icons.Default.Search, "")
+                }
+
+            }
+        )
     }, content = { paddingValues ->
         val lazyViewModel = viewModel.getPagedMovies().collectAsLazyPagingItems()
 
