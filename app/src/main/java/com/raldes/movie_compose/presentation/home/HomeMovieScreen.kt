@@ -13,8 +13,8 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @Composable
-@Preview
-fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel(),
+                    gotoDetailScreen: (movieId: Long) -> Unit) {
     Scaffold(topBar = {
         TopAppBar(
             title = { Text(text = "Home") },
@@ -24,7 +24,6 @@ fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel()) {
                 } ) {
                     Icon(Icons.Default.Search, "")
                 }
-
             }
         )
     }, content = { paddingValues ->
@@ -36,7 +35,7 @@ fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel()) {
                 key = { item -> item.id }
             ) { item ->
                 if (item != null) {
-                    HomeItem(movie = item)
+                    HomeItem(movie = item, onMovieClick = { gotoDetailScreen(it) })
                 }
             }
         }

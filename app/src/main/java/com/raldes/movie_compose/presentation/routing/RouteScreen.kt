@@ -35,4 +35,11 @@ sealed class ListScreen(val route: String) {
     object Ticket: ListScreen("tickets") {
         fun createRoute(root: RouteScreen) = "${root.route}/$route"
     }
+
+    object MovieDetails: ListScreen("movie/{movieId}") {
+        fun createRoute(root: RouteScreen) = "${root.route}/$route"
+        fun createRoute(root:RouteScreen, movieId: Long): String {
+            return "${root.route}/movie/$movieId"
+        }
+    }
 }

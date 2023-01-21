@@ -20,10 +20,12 @@ import com.raldes.movie_compose.presentation.ui.PosterDetails
 @Composable
 fun HomeItem(
     movie: Movie,
-    modifier: Modifier = Modifier) {
+    modifier: Modifier = Modifier,
+    onMovieClick: (id: Long) -> Unit) {
 
+    //hardcode onMovieClick
     Row(modifier = modifier
-        .clickable { }
+        .clickable { onMovieClick(1) }
         .background(MaterialTheme.colors.background)
         .padding(horizontal = 10.dp, vertical = 8.dp)
         .fillMaxWidth()) {
