@@ -25,7 +25,7 @@ fun HomeItem(
 
     //hardcode onMovieClick
     Row(modifier = modifier
-        .clickable { onMovieClick(1) }
+        .clickable { onMovieClick(movie.id) }
         .background(MaterialTheme.colors.background)
         .padding(horizontal = 10.dp, vertical = 8.dp)
         .fillMaxWidth()) {

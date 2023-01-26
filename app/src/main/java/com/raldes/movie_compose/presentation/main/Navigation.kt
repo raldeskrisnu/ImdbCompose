@@ -52,11 +52,9 @@ fun Navigation(navHostController: NavHostController) {
 
 @FlowPreview
 private fun NavGraphBuilder.addDiscover(navController: NavController, routeScreen: RouteScreen) {
-    composable(route = ListScreen.Discover.createRoute(routeScreen),
-               arguments = listOf(navArgument("movieId") { type = NavType.LongType })
-    ) {
+    composable(route = ListScreen.Discover.createRoute(routeScreen)) {
         HomeMovieScreen(gotoDetailScreen = {
-            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, movieId = it))
+            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen,it))
         })
     }
 }
@@ -88,6 +86,8 @@ private fun NavGraphBuilder.addMovieDetail(navController: NavController, rootScr
                     NavType.LongType
                 })
     ) {
-        MovieDetailScreen()
+        MovieDetailScreen(onBackPressed = {
+            navController.popBackStack()
+       })
     }
 }

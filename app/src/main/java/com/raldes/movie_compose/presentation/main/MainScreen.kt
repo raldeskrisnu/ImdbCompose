@@ -40,7 +40,7 @@ fun MainScreen () {
     val showBottomBar = currentRoute in mainRoutes
 
     Scaffold(bottomBar = {
-        BottomBar(navController = navController, items = rootsScreens)
+        if (showBottomBar) BottomBar(navController = navController, items = rootsScreens)
     }, content = {
         Box(modifier = Modifier.fillMaxSize().padding(paddingValues = it)) {
             Navigation(navController)

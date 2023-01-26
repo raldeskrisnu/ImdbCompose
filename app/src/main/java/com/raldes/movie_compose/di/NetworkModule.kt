@@ -1,6 +1,8 @@
 package com.raldes.movie_compose.di
 
 import com.raldes.data.network.MovieService
+import com.raldes.domain.Constant.API_KEY
+import com.raldes.domain.Constant.BASE_URL
 import com.raldes.movie_compose.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -24,7 +26,7 @@ object NetworkModule {
             val request = it.request()
 
             val url = request.url.newBuilder()
-                .addQueryParameter("api_key", "4662e7a7fe13c9d91c80552e10a09dc1")
+                .addQueryParameter("api_key", API_KEY)
                 .build()
 
             val newRequest = request.newBuilder()
@@ -62,7 +64,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
