@@ -27,13 +27,12 @@ import kotlinx.coroutines.FlowPreview
 fun MainScreen () {
 
     val navController = rememberNavController()
-    val rootsScreens = listOf(RouteScreen.Discover, RouteScreen.Search, RouteScreen.Favorite, RouteScreen.Ticket)
+    val rootsScreens = listOf(RouteScreen.Discover, RouteScreen.Ticket,RouteScreen.Favorite)
 
     val mainRoutes = listOf(
         ListScreen.Discover.createRoute(RouteScreen.Discover),
-        ListScreen.Search.createRoute(RouteScreen.Search),
-        ListScreen.Favorite.creteRoute(RouteScreen.Favorite),
-        ListScreen.Ticket.createRoute(RouteScreen.Ticket))
+        ListScreen.Ticket.createRoute(RouteScreen.Ticket),
+        ListScreen.Favorite.creteRoute(RouteScreen.Favorite))
 
     val currentBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = currentBackStackEntry?.destination?.route

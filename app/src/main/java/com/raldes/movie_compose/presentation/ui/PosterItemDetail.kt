@@ -49,7 +49,7 @@ fun PosterDetails(
             if(movie.voteAverage !=null) {
                 Text(
                     text = stringResource(id =
-                    com.raldes.movie_compose.R.string.release_date,
+                    com.raldes.movie_compose.R.string.vote_average,
                     formatArgs = arrayOf(movie.voteAverage!!)),
                     style = subtitleTextStyle
                 )

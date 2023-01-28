@@ -31,6 +31,7 @@ fun Navigation(navHostController: NavHostController) {
         startDestination = ListScreen.Discover.createRoute(RouteScreen.Discover)) {
             addDiscover(navHostController, RouteScreen.Discover)
             addMovieDetail(navHostController, RouteScreen.Discover)
+            addSearch(navHostController, RouteScreen.Discover)
         }
 
         navigation(route = RouteScreen.Search.route,
@@ -55,6 +56,8 @@ private fun NavGraphBuilder.addDiscover(navController: NavController, routeScree
     composable(route = ListScreen.Discover.createRoute(routeScreen)) {
         HomeMovieScreen(gotoDetailScreen = {
             navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen,it))
+        }, gotoSearchScreen = {
+            navController.navigate(ListScreen.Search.createRoute(routeScreen))
         })
     }
 }
@@ -62,7 +65,9 @@ private fun NavGraphBuilder.addDiscover(navController: NavController, routeScree
 @FlowPreview
 private fun NavGraphBuilder.addSearch(navController: NavController, routeScreen: RouteScreen) {
     composable(route = ListScreen.Search.createRoute(routeScreen)) {
-        SearchMovieScreen()
+        SearchMovieScreen(onBackPressed = {
+            navController.popBackStack()
+        })
     }
 }
 

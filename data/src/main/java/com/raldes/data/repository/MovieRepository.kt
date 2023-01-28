@@ -15,4 +15,8 @@ class MovieRepository @Inject constructor(private val movieDataSource: MovieData
     override suspend fun getMovieDetailsById(movieId: Long): MovieDetails {
         return movieDataSource.getMovieDetailById(movieId)
     }
+
+    override suspend fun getSearchMovies(query: String, page: Int): Movies {
+        return movieDataSource.getSearchMovie(query, page)
+    }
 }

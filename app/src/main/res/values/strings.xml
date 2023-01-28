@@ -3,6 +3,6 @@
     <string name="release_date">Release date: %s</string>
     <string name="vote_average">Vote average: %.1f</string>
     <string name="vote_count">Vote count: %d</string>
-    <string name="sinopsys">Synopsis</string>
+    <string name="sinopsys">Summary</string>
     <string name="error_message">Something went wrong</string>
 </resources>

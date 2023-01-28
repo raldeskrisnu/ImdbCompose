@@ -9,6 +9,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,7 @@ fun TopBar(
     onFavoriteClicked: () -> Unit,
     upPressed: () -> Unit) {
 
-    TopAppBar(contentColor = MaterialTheme.colors.onSurface,
+    TopAppBar(contentColor = Color.White,
         title = {
         Text(
             text = title,

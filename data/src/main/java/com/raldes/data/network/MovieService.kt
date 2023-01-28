@@ -14,4 +14,7 @@ interface MovieService {
 
     @GET("movie/{id}?append_to_response=videos,credits")
     suspend fun getMovieDetails(@Path("id") id: Long): MovieDetailResponse
+
+    @GET("search/movie")
+    suspend fun searchMovies(@Query("query") query: String,@Query("page") page: Int): MovieResponse
 }

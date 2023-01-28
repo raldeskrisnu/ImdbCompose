@@ -16,4 +16,8 @@ class MovieDataSource @Inject constructor(private val movieService: MovieService
     suspend fun getMovieDetailById(movieId: Long): MovieDetails {
         return movieService.getMovieDetails(movieId).asMovieDetail()
     }
+
+    suspend fun getSearchMovie(query: String, page: Int): Movies {
+        return movieService.searchMovies(query, page).asMovies()
+    }
 }

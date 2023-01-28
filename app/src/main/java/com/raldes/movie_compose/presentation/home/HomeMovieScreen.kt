@@ -22,16 +22,17 @@ import com.raldes.movie_compose.presentation.ui.PagingLoadState
 
 @Composable
 fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel(),
-                    gotoDetailScreen: (movieId: Long) -> Unit) {
+                    gotoDetailScreen: (movieId: Long) -> Unit,
+                    gotoSearchScreen: () -> Unit) {
 
-   val lazyViewModel = viewModel.getPagedMovies().collectAsLazyPagingItems()
+   val lazyViewModel = viewModel.trendingTvSeries.value.collectAsLazyPagingItems()
 
     Scaffold(topBar = {
         TopAppBar(
-            title = { Text(text = "Home") },
+            title = { Text(text = "Top Movie") },
             actions = {
                 IconButton(onClick = {
-                    //on click
+                    gotoSearchScreen()
                 } ) {
                     Icon(Icons.Default.Search, "")
                 }

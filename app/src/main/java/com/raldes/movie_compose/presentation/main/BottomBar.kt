@@ -35,8 +35,7 @@ fun BottomBar (navController: NavController, items: List<RouteScreen>) {
                 },
                 label = {
                     Text(text = myScreen.label)
-                },
-                alwaysShowLabel = false)
+                })
         }
     }
 }
