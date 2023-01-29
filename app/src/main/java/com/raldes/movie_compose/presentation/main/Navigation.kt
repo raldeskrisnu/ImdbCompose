@@ -1,10 +1,8 @@
 package com.raldes.movie_compose.presentation.main
 
-import android.media.MediaRouter2.RouteCallback
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,7 +12,7 @@ import com.raldes.movie_compose.presentation.moviedetails.MovieDetailScreen
 import com.raldes.movie_compose.presentation.routing.ListScreen
 import com.raldes.movie_compose.presentation.routing.RouteScreen
 import com.raldes.movie_compose.presentation.search.SearchMovieScreen
-import com.raldes.movie_compose.presentation.tickets.TicketScreen
+import com.raldes.movie_compose.presentation.series.SeriesScreen
 import kotlinx.coroutines.FlowPreview
 
 @ExperimentalAnimationApi
@@ -83,7 +81,7 @@ private fun NavGraphBuilder.addFavorites(navController: NavController, routeScre
 @FlowPreview
 private fun NavGraphBuilder.addTickets(routeScreen: RouteScreen) {
     composable(route = ListScreen.Ticket.createRoute(routeScreen)) {
-        TicketScreen()
+        SeriesScreen()
     }
 }
 

@@ -1,17 +1,17 @@
 package com.raldes.data.response.mappers
 
 import com.raldes.data.response.MovieDetailResponse
-import com.raldes.data.response.MovieNetwork
+import com.raldes.data.response.MovieResults
 import com.raldes.data.response.MovieResponse
 import com.raldes.domain.model.*
 
-fun MovieResponse.asMovies() = Movies(
+fun MovieResponse.asMovies() = MoviesMapperResponse(
     results.map { it.asMovie() },
     currentPage = page,
     totalPages = totalPages
 )
 
-fun MovieNetwork.asMovie() = Movie(
+fun MovieResults.asMovie() = Movie(
     id = id,
     title = title,
     overview = overview,

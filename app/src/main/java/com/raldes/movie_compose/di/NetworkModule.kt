@@ -1,6 +1,7 @@
 package com.raldes.movie_compose.di
 
 import com.raldes.data.network.MovieService
+import com.raldes.data.network.SeriesService
 import com.raldes.domain.Constant.API_KEY
 import com.raldes.domain.Constant.BASE_URL
 import com.raldes.movie_compose.BuildConfig
@@ -72,4 +73,8 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideMovieService(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideSeriesServies(retrofit: Retrofit): SeriesService = retrofit.create(SeriesService::class.java)
 }

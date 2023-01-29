@@ -3,14 +3,10 @@ package com.raldes.movie_compose.presentation.moviedetails
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.raldes.domain.model.Genre
-import com.raldes.domain.model.Movie
 import com.raldes.domain.model.MovieDetails
-import com.raldes.domain.model.Movies
 import com.raldes.domain.usecase.GetMovieDetailByIdUseCase
 import com.raldes.movie_compose.R
 import dagger.hilt.android.lifecycle.HiltViewModel

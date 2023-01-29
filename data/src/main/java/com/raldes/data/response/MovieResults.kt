@@ -2,7 +2,7 @@ package com.raldes.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class MovieNetwork(
+data class MovieResults(
     @SerializedName("id")
     val id: Long,
     @SerializedName("title")
