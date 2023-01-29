@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchMovieViewModel @Inject constructor(private val searchMoviesUseCase: SearchMovieUseCase): ViewModel() {
+class SearchViewModel @Inject constructor(private val searchMoviesUseCase: SearchMovieUseCase): ViewModel() {
 
     val searchQuery = MutableStateFlow("")
     var searchResults: Flow<PagingData<Movie>>? by mutableStateOf(null)

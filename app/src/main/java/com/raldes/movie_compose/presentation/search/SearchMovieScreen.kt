@@ -7,15 +7,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.navigation.compose.hiltViewModel
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchMovieScreen(
     onBackPressed:() -> Unit,
-    viewModel: SearchMovieViewModel = hiltViewModel()) {
+    viewModel: SearchViewModel = hiltViewModel(),
+    openMovieDetails: (movieId: Long) -> Unit) {
+
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     var query by remember {
         mutableStateOf(TextFieldValue(""))
@@ -38,6 +44,13 @@ fun SearchMovieScreen(
                 query = it
                 viewModel.updateQuery(it.text)
             })
+
+            viewModel.searchResults?.let {
+                SearchMovieResults(searchTerm = query.text, resuls = it, onItemClick = {
+                    keyboardController?.hide()
+                    openMovieDetails(it)
+                })
+            }
         }
     })
 

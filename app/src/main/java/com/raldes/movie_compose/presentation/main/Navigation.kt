@@ -67,6 +67,8 @@ private fun NavGraphBuilder.addSearch(navController: NavController, routeScreen:
     composable(route = ListScreen.Search.createRoute(routeScreen)) {
         SearchMovieScreen(onBackPressed = {
             navController.popBackStack()
+        }, openMovieDetails = {
+            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, it))
         })
     }
 }
