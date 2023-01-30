@@ -15,10 +15,16 @@ class SeriesPagingDataSource(private val seriesTrendingUseCase: GetSeriesTrendin
         return try {
             val response = seriesTrendingUseCase(page)
 
+
+            //      Add this code below if you want to add pagination
+             // prevKey = if(page == INDEX) null else page -1,
+            //  nextKey = if(page == response.totalPages || response.totalPages == 0) null else page + 1
+
+
             LoadResult.Page(
                 data = response.listSeries,
-                prevKey = if(page == INDEX) null else page -1,
-                nextKey = if(page == response.totalPages || response.totalPages == 0) null else page + 1
+                prevKey = null,
+                nextKey = null
             )
 
         } catch (e: Exception) {

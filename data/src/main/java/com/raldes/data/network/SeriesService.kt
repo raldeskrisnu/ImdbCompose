@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface SeriesService {
 
-    @GET("tv/day")
+    @GET("trending/tv/day")
     suspend fun getTrendingTvSeries(@Query("page") page: Int): SeriesResponse
 }

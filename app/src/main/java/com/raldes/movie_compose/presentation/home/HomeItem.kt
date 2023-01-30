@@ -2,10 +2,7 @@ package com.raldes.movie_compose.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocalMovies
@@ -32,8 +29,8 @@ fun HomeItem(
 
         Poster(posterUrl =  movie.posterUrl,
                 modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(2 / 3f))
+                    .width(80.dp)
+                    .height(100.dp))
 
         PosterDetails(movie = movie,
             modifier = Modifier.weight(3f)

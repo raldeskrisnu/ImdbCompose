@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class SeriesResults(
     @SerializedName("backdrop_path")
     val backdropPath: String,
-    @SerializedName("poster")
+    @SerializedName("poster_path")
     val poster: String,
     @SerializedName("id")
     val seriesId: Long,
