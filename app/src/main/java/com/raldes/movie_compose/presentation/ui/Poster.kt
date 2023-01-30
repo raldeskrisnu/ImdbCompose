@@ -10,14 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.google.accompanist.glide.rememberGlidePainter
-import com.google.accompanist.imageloading.ImageLoadState
-import com.raldes.domain.model.Movie
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.raldes.movie_compose.R
+
 
 @Composable
 fun Poster(
@@ -32,24 +31,17 @@ fun Poster(
         if(posterUrl == null) {
             Placeholder(modifier.matchParentSize())
         } else {
-            val painter = rememberGlidePainter(request = posterUrl)
-            Image(painter = painter,
-                contentDescription = null,
-                modifier= modifier
-                    .wrapContentSize()
-                    .clip(MaterialTheme.shapes.medium))
 
-            when(painter.loadState) {
-                is ImageLoadState.Loading -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp)
-                    )
-                }
-                is ImageLoadState.Error -> {
-                    Placeholder(modifier)
-                }
-                else -> {}
-            }
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(posterUrl)
+                    .crossfade(true)
+                    .build(),
+                placeholder = painterResource(R.drawable.ic_launcher_background),
+                contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = modifier.wrapContentSize().clip(MaterialTheme.shapes.medium)
+            )
         }
     }
 

@@ -25,9 +25,7 @@ fun MovieInfoPosterRow(
             .padding(16.dp)
             .fillMaxWidth()
     ) {
-//        Image(imageVector = Icons.Default.Movie,
-//            contentDescription = null,
-//            modifier = Modifier.weight(2f).aspectRatio(2 / 3f))
+
         Poster(
             posterUrl = movieDetails.movies.posterUrl,
             modifier = Modifier

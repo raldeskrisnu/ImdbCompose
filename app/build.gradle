@@ -92,7 +92,6 @@ dependencies {
     // Google
     implementation Dependencies.materialGoogle
     implementation Dependencies.flowlayout
-    implementation Dependencies.glide
     implementation Dependencies.insets
     implementation Dependencies.systemuicontroller
 

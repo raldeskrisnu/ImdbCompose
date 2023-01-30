@@ -30,7 +30,6 @@ object Dependencies {
     const val coil = "io.coil-kt:coil-compose:${Versions.compose_coil}"
 
     const val materialGoogle = "com.google.android.material:material:${Versions.material}"
-    const val glide =  "com.google.accompanist:accompanist-glide:${Versions.glide}"
     const val flowlayout = "com.google.accompanist:accompanist-flowlayout:${Versions.accompanist}"
     const val insets =  "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
     const val systemuicontroller = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}"
@@ -47,6 +46,8 @@ object Dependencies {
     const val hiltCompilerTest =  "com.google.dagger:hilt-compiler:${Versions.di_hilt}"
     const val daggerHiltTest = "com.google.dagger:hilt-android-testing:${Versions.di_hilt}"
     const val daggerHiltCompilerTest = "com.google.dagger:hilt-compiler:${Versions.di_hilt}"
+
+
 
     const val javaInject = "javax.inject:javax.inject:${Versions.jvm_inject}"
 
@@ -78,7 +79,6 @@ object Versions {
     const val lifecycle = "2.5.1"
     const val material = "1.6.1"
     const val accompanist = "0.21.1-beta"
-    const val glide = "0.15.0"
     const val retrofit = "2.9.0"
     const val okhttp_logging = "4.9.1"
     const val three_ten_bp = "1.3.1"
