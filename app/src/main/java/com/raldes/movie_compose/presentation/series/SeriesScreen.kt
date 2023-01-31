@@ -26,7 +26,7 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel()) {
         Column(
             modifier = Modifier.fillMaxWidth().padding(paddingValues)
         ) {
-            LazyColumn {
+            LazyColumn(Modifier.padding(horizontal = 5.dp)) {
                 item(content = {
                     Text(text = "Trending",
                         color = Color.White,
@@ -47,9 +47,11 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel()) {
                             items(trendingTvSeries) { series ->
                                 //input series item
                                 series?.posterUrl?.let {
-                                    SeriesItem(modifier = Modifier.height(220.dp).width(250.dp),
-                                        it
-                                    )
+                                    series.title?.let { it1 ->
+                                        SeriesItem(modifier = Modifier.height(220.dp).width(250.dp),
+                                            it, it1
+                                        )
+                                    }
                                 }
                             }
                         })

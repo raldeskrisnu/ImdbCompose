@@ -1,6 +1,6 @@
 package com.raldes.data.repository
 
-import com.raldes.data.datasource.SeriesDataSource
+import com.raldes.data.datasource.service.SeriesDataSource
 import com.raldes.domain.implement.SeriesImpl
 import com.raldes.domain.model.SeriesMapperResponse
 import javax.inject.Inject

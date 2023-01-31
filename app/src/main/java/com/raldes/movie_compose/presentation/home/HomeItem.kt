@@ -20,7 +20,6 @@ fun HomeItem(
     modifier: Modifier = Modifier,
     onMovieClick: (id: Long) -> Unit) {
 
-    //hardcode onMovieClick
     Row(modifier = modifier
         .clickable { onMovieClick(movie.id) }
         .background(MaterialTheme.colors.background)

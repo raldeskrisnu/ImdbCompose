@@ -1,4 +1,4 @@
-package com.raldes.data.datasource
+package com.raldes.data.datasource.service
 
 import com.raldes.data.network.SeriesService
 import com.raldes.data.response.mappers.asSeries
