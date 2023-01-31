@@ -11,8 +11,9 @@ interface MovieImpl {
     suspend fun getSearchMovies(query: String, page: Int): MoviesMapperResponse
 
     //db region
-    suspend fun saveFavMovie(movie: Movie)
+    suspend fun saveFavMovie(movie: Movie): Long
     suspend fun getAllFavMovie(): Flow<List<Movie>>
     suspend fun getFavMovie(id: Long): Flow<Movie?>
+    suspend fun deleteFavMovie(movieId: Long): Int
 
 }

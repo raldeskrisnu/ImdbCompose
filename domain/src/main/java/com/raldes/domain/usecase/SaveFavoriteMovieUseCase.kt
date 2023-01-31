@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class SaveFavoriteMovieUseCase @Inject constructor(private val movieImpl: MovieImpl) {
 
-    suspend operator fun invoke(movie: Movie) {
+    suspend operator fun invoke(movie: Movie): Long {
         return movieImpl.saveFavMovie(movie)
     }
 }

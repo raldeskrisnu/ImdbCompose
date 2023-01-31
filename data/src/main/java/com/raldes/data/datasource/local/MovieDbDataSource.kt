@@ -10,14 +10,22 @@ class MovieDbDataSource @Inject constructor(
         private val movieDao: MovieDao,
         private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) {
 
-        suspend fun saveFavoriteMovie(movie: FavoriteTableDb) =
-             withContext(ioDispatcher) {
-                movieDao.insertFavoriteMovies(movie)
-            }
+    suspend fun saveFavoriteMovie(movie: FavoriteTableDb): Long =
+         withContext(ioDispatcher) {
+            movieDao.insertFavoriteMovies(movie)
+        }
 
-        fun getFavoriteMovie(movieId: Long): Flow<FavoriteTableDb?> =
+    suspend fun getFavoriteMovie(movieId: Long): Flow<FavoriteTableDb?> =
+        withContext(ioDispatcher) {
             movieDao.getMovieById(movieId)
+        }
 
-        fun getAllFavoriteMovies(): Flow<List<FavoriteTableDb>> =
-            movieDao.getAllFavoriteMovies()
+    fun getAllFavoriteMovies(): Flow<List<FavoriteTableDb>> =
+        movieDao.getAllFavoriteMovies()
+
+    suspend fun deleteMovies(movieId: Long): Int =
+        withContext(ioDispatcher) {
+            movieDao.deleteMovieById(movieId)
+        }
+
 }

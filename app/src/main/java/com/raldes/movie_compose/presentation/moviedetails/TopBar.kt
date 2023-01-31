@@ -39,17 +39,17 @@ fun TopBar(
                     modifier = Modifier
                         .padding(8.dp)
                         .size(24.dp),
-                    color = MaterialTheme.colors.primary,
+                    color = Color.White,
                     strokeWidth = 2.dp
                 )
             }
             IconButton(
-                onClick = { onFavoriteClicked },
+                onClick = onFavoriteClicked,
                 content = {
                     Icon(
                         imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = null,
-                        tint = MaterialTheme.colors.primary
+                        tint = Color.White
                     )
                 }
             )

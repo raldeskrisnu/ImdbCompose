@@ -1,5 +1,6 @@
 package com.raldes.movie_compose.presentation.moviedetails
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -7,9 +8,13 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.raldes.domain.model.MovieDetails
+import com.raldes.domain.usecase.DeleteMovieByIdUseCase
+import com.raldes.domain.usecase.GetFavoriteMoviesByIdUseCase
 import com.raldes.domain.usecase.GetMovieDetailByIdUseCase
+import com.raldes.domain.usecase.SaveFavoriteMovieUseCase
 import com.raldes.movie_compose.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -17,15 +22,24 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailViewModel @Inject constructor(
     stateHandle: SavedStateHandle,
-    private val getMovieDetailByIdUseCase: GetMovieDetailByIdUseCase): ViewModel() {
+    private val getMovieDetailByIdUseCase: GetMovieDetailByIdUseCase,
+    private val saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase,
+    private val deleteMovieByIdUseCase: DeleteMovieByIdUseCase,
+    private val getFavoriteMoviesByIdUseCase: GetFavoriteMoviesByIdUseCase
+): ViewModel() {
 
-    val id: String? = stateHandle["movieId"]
+    val movId: String? = stateHandle["movieId"]
     var movieDetails: MovieDetails? by mutableStateOf(null)
     var isLoading: Boolean by mutableStateOf(false)
     var errMsg: Int? by mutableStateOf(null)
 
+    var isFavoriteLoading: Boolean by mutableStateOf(false)
+    var isFavorite: Boolean? by mutableStateOf(null)
+
+
     init {
-        getMovieDetailsById(movieId = id?.toLong())
+        getMovieDetailsById(movId?.toLong())
+        getMoviesFavoriteById(movId?.toLong())
     }
 
     private fun getMovieDetailsById(movieId: Long?) {
@@ -41,4 +55,32 @@ class MovieDetailViewModel @Inject constructor(
         }
     }
 
+    private fun getMoviesFavoriteById(movieId: Long?) {
+        viewModelScope.launch {
+            isFavoriteLoading = true
+            if (movieId != null) {
+                getFavoriteMoviesByIdUseCase(movieId)
+                    .catch {
+                        isFavoriteLoading = false
+                    }.collect {
+                        isFavorite = it?.isFavorite
+                        isFavoriteLoading = false
+                    }
+            }
+        }
+    }
+
+    fun saveFavoriteMovie() {
+        viewModelScope.launch {
+            isFavoriteLoading = true
+            if(isFavorite == true) {
+                movId?.toLong()?.let { deleteMovieByIdUseCase(it) }
+                isFavorite = false
+            } else {
+                movieDetails?.movies?.let { saveFavoriteMovieUseCase(it) }
+                isFavorite = true
+            }
+            isFavoriteLoading = false
+        }
+    }
 }

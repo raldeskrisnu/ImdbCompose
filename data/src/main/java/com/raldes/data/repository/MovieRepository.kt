@@ -40,7 +40,7 @@ class MovieRepository @Inject constructor(private val movieDataSource: MovieData
         }
     }
 
-    override suspend fun saveFavMovie(movie: Movie) {
+    override suspend fun saveFavMovie(movie: Movie): Long {
         return movieDbDataSource.saveFavoriteMovie(
             FavoriteTableDb(
                 id = movie.id,
@@ -54,5 +54,9 @@ class MovieRepository @Inject constructor(private val movieDataSource: MovieData
                 title = movie.title
             )
         )
+    }
+
+    override suspend fun deleteFavMovie(movieId: Long): Int {
+        return movieDbDataSource.deleteMovies(movieId)
     }
 }

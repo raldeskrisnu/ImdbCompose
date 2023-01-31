@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class GetAllFavoriteMoviesUseCase @Inject constructor(private val movieImpl: MovieImpl) {
 
-    operator fun invoke(): Flow<List<Movie>> {
+    suspend operator fun invoke(): Flow<List<Movie>> {
         return movieImpl.getAllFavMovie()
     }
 }
