@@ -9,9 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.raldes.domain.model.Movie
 import com.raldes.movie_compose.R
-import com.raldes.movie_compose.presentation.favorites.FavoriteMovieViewModel
 import com.raldes.movie_compose.presentation.ui.Loading
 import com.raldes.movie_compose.presentation.ui.PopupMessages
 

@@ -40,6 +40,7 @@ fun Navigation(navHostController: NavHostController) {
         navigation(route = RouteScreen.Favorite.route,
         startDestination = ListScreen.Favorite.creteRoute(RouteScreen.Favorite)) {
             addFavorites(navHostController, RouteScreen.Favorite)
+            addMovieDetail(navHostController, RouteScreen.Favorite)
         }
 
         navigation(route = RouteScreen.Ticket.route,
@@ -74,7 +75,9 @@ private fun NavGraphBuilder.addSearch(navController: NavController, routeScreen:
 @FlowPreview
 private fun NavGraphBuilder.addFavorites(navController: NavController, routeScreen: RouteScreen) {
     composable(route = ListScreen.Favorite.creteRoute(routeScreen)) {
-        FavoritesMovieScreen()
+        FavoritesMovieScreen(gotoMovieDetails = {
+            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, it))
+        })
     }
 }
 
