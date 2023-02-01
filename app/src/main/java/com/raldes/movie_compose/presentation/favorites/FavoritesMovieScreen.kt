@@ -1,6 +1,5 @@
 package com.raldes.movie_compose.presentation.favorites
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -9,7 +8,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.raldes.movie_compose.presentation.home.HomeItem
@@ -19,7 +17,7 @@ import com.raldes.movie_compose.presentation.ui.Loading
 fun FavoritesMovieScreen(viewModel: FavoriteMovieViewModel = hiltViewModel(),
                          gotoMovieDetails: (movieId: Long) -> Unit) {
     Scaffold(topBar = {
-        TopAppBar(title = { Text(text = "Favorites screen") })
+        TopAppBar(title = { Text(text = "Favorites") })
     }) { paddingValues ->
         if(viewModel.loadingState) {
             Loading()

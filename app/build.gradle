@@ -110,4 +110,6 @@ dependencies {
     kaptTest Dependencies.hiltCompilerTest
     androidTestImplementation Dependencies.daggerHiltTest
     kaptAndroidTest Dependencies.daggerHiltCompilerTest
+
+    implementation("androidx.core:core-splashscreen:1.0.0")
 }

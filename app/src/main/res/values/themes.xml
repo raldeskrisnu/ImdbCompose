@@ -4,4 +4,9 @@
     <style name="Theme.Moviecompose" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
+
+    <style name="SplashScreenTheme1" parent="Theme.Moviecompose">
+        <item name="android:windowBackground">@color/material_dynamic_primary20</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_splash</item>
+    </style>
 </resources>
