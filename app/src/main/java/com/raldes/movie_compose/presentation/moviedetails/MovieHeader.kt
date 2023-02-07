@@ -23,8 +23,8 @@ fun MovieHeader(title: String) {
         Text(text = title,
             style = TextStyle(
                 fontFamily = moviesFontFamily,
-                fontWeight = FontWeight.Medium,
-                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
                 letterSpacing = 0.20.sp
             )
         )

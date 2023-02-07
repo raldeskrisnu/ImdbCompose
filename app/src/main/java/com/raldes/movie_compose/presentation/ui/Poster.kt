@@ -20,7 +20,7 @@ fun Poster(
     modifier: Modifier = Modifier) {
 
     Box(modifier = modifier
-        .wrapContentSize()
+        .fillMaxSize()
         .clip(MaterialTheme.shapes.medium),
         contentAlignment = Alignment.Center) {
 
@@ -35,8 +35,8 @@ fun Poster(
                     .build(),
                 placeholder = painterResource(R.drawable.ic_launcher_background),
                 contentDescription = "",
-                contentScale = ContentScale.FillBounds,
-                modifier = modifier.wrapContentSize().clip(MaterialTheme.shapes.medium)
+                contentScale = ContentScale.Fit,
+                modifier = modifier.matchParentSize().clip(MaterialTheme.shapes.medium)
             )
         }
     }

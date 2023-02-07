@@ -4,14 +4,22 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.raldes.movie_compose.R
+import com.raldes.movie_compose.presentation.ui.CastSection
 import com.raldes.movie_compose.presentation.ui.Loading
 import com.raldes.movie_compose.presentation.ui.PopupMessages
+import com.raldes.movie_compose.presentation.ui.moviesFontFamily
 
 @Composable
 fun MovieDetailScreen(
@@ -46,6 +54,7 @@ fun MovieDetailScreen(
                 }
 
                 movieDetailViewModel.movieDetails?.let { details ->
+
                     //banner section
                     MovieDetailBackdrop(details.movies.backdropUrl)
 
@@ -58,8 +67,16 @@ fun MovieDetailScreen(
                         MovieHeader(stringResource(id = R.string.sinopsys))
                         Overview(it)
                     }
+
+                    //cast section
+                    CastSection(details.cast)
+
                 }
+
+
             }
+
+
         }
     }
 
