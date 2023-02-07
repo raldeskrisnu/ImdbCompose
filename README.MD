@@ -21,7 +21,7 @@ Project build with full jetpack compose and navigation compose
 
 ### What's Next
 - Add Cast on movie :white_check_mark:
-- Add more page series :white_check_mark:
+- Add more series
 - Detekt
 - Unit test
 - build.properties
