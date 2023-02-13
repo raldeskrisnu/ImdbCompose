@@ -24,7 +24,8 @@ import com.raldes.movie_compose.presentation.ui.moviesFontFamily
 @Composable
 fun MovieDetailScreen(
     movieDetailViewModel: MovieDetailViewModel = hiltViewModel(),
-    onBackPressed: () -> Unit
+    onBackPressed: () -> Unit,
+    isSeries: Boolean = false
 ) {
 
     val scrollState = rememberScrollState()

@@ -1,6 +1,5 @@
 package com.raldes.movie_compose.presentation.moviedetails
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -8,10 +7,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.raldes.domain.model.MovieDetails
-import com.raldes.domain.usecase.DeleteMovieByIdUseCase
-import com.raldes.domain.usecase.GetFavoriteMoviesByIdUseCase
-import com.raldes.domain.usecase.GetMovieDetailByIdUseCase
-import com.raldes.domain.usecase.SaveFavoriteMovieUseCase
+import com.raldes.domain.model.SeriesDetails
+import com.raldes.domain.usecase.*
 import com.raldes.movie_compose.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -25,11 +22,13 @@ class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailByIdUseCase: GetMovieDetailByIdUseCase,
     private val saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase,
     private val deleteMovieByIdUseCase: DeleteMovieByIdUseCase,
-    private val getFavoriteMoviesByIdUseCase: GetFavoriteMoviesByIdUseCase
+    private val getFavoriteMoviesByIdUseCase: GetFavoriteMoviesByIdUseCase,
+    private val getSeriesDetailUseCase: GetSeriesDetailUseCase
 ): ViewModel() {
 
     val movId: String? = stateHandle["movieId"]
     var movieDetails: MovieDetails? by mutableStateOf(null)
+    var seriesDetails: SeriesDetails? by mutableStateOf(null)
     var isLoading: Boolean by mutableStateOf(false)
     var errMsg: Int? by mutableStateOf(null)
 
@@ -42,11 +41,16 @@ class MovieDetailViewModel @Inject constructor(
         getMoviesFavoriteById(movId?.toLong())
     }
 
-    private fun getMovieDetailsById(movieId: Long?) {
+    private fun getMovieDetailsById(movieId: Long?, isSeries: Boolean = false) {
         viewModelScope.launch {
             isLoading = true
             try {
-                movieDetails = movieId?.let { getMovieDetailByIdUseCase(it) }
+                if(isSeries) {
+                    seriesDetails = movieId?.let { getSeriesDetailUseCase(it) }
+                } else {
+                    movieDetails = movieId?.let { getMovieDetailByIdUseCase(it) }
+                }
+
             } catch (e: Exception) {
                 Timber.e(e)
                 errMsg = R.string.error_message

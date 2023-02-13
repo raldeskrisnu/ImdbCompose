@@ -3,9 +3,9 @@ package com.raldes.movie_compose.presentation.series
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.raldes.domain.model.Series
-import com.raldes.domain.usecase.GetSeriesTrendingUseCase
+import com.raldes.domain.usecase.GetTopRatedSeriesUseCase
 
-class SeriesPagingDataSource(private val seriesTrendingUseCase: GetSeriesTrendingUseCase): PagingSource<Int,Series>() {
+class SeriesTopRatedPagingDataSource(private val getTopRatedSeriesUseCase: GetTopRatedSeriesUseCase): PagingSource<Int, Series>() {
 
     private val INDEX = 1
 
@@ -13,10 +13,9 @@ class SeriesPagingDataSource(private val seriesTrendingUseCase: GetSeriesTrendin
         val page = params.key ?: INDEX
 
         return try {
-            val response = seriesTrendingUseCase(page)
+            val response = getTopRatedSeriesUseCase(page)
 
-            //      Add this code below if you want to add pagination
-             // prevKey = if(page == INDEX) null else page -1,
+            // prevKey = if(page == INDEX) null else page -1,
             //  nextKey = if(page == response.totalPages || response.totalPages == 0) null else page + 1
 
             LoadResult.Page(
@@ -24,7 +23,6 @@ class SeriesPagingDataSource(private val seriesTrendingUseCase: GetSeriesTrendin
                 prevKey = null,
                 nextKey = null
             )
-
         } catch (e: Exception) {
             LoadResult.Error(e)
         }

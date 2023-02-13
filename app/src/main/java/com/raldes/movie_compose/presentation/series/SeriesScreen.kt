@@ -16,15 +16,19 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 
 @Composable
-fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel()) {
+fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel(),
+                 openMovieDetails: (movieId: Long) -> Unit) {
 
     val trendingTvSeries = viewModel.trendingTvSeries.value.collectAsLazyPagingItems()
+    val topRatedTvSeries = viewModel.topRatedTvSeries.value.collectAsLazyPagingItems()
 
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "Series") })
     }) { paddingValues ->
         Column(
-            modifier = Modifier.fillMaxWidth().padding(paddingValues)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(paddingValues)
         ) {
             LazyColumn(Modifier.padding(horizontal = 5.dp)) {
                 item(content = {
@@ -47,13 +51,13 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel()) {
                             items(trendingTvSeries) { series ->
                                 //input series item
                                 series?.posterUrl?.let {
-                                    series.title?.let { it1 ->
-                                        SeriesItem(modifier = Modifier.height(220.dp).width(250.dp),
-                                            it, it1
+                                        SeriesItem(modifier = Modifier
+                                            .height(220.dp)
+                                            .width(250.dp),
+                                            it
                                         )
                                     }
                                 }
-                            }
                         })
 
                         trendingTvSeries.apply {
@@ -74,6 +78,37 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel()) {
                         }
                     }
                 })
+
+                //top rated section
+                item(content = {
+                    Text(text = "Top Rated",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        style = MaterialTheme.typography.h1,
+                        modifier = Modifier.padding(vertical = 10.dp))
+                })
+
+                item {
+                    Spacer(modifier = Modifier.height(5.dp))
+
+                    Box(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp),
+                        contentAlignment = Alignment.Center) {
+
+                        LazyRow(content = {
+                            items(topRatedTvSeries) { topRatedTvSeries ->
+                                topRatedTvSeries?.posterUrl?.let {
+                                    SeriesItem(modifier = Modifier
+                                        .height(200.dp)
+                                        .width(130.dp),
+                                        it
+                                    )
+                                }
+                            }
+                        })
+                    }
+                }
             }
         }
     }

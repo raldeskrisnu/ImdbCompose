@@ -45,7 +45,7 @@ fun Navigation(navHostController: NavHostController) {
 
         navigation(route = RouteScreen.Ticket.route,
         startDestination = ListScreen.Ticket.createRoute(RouteScreen.Ticket)) {
-            addTickets(RouteScreen.Ticket)
+            addTickets(navHostController,RouteScreen.Ticket)
         }
     }
 }
@@ -82,9 +82,11 @@ private fun NavGraphBuilder.addFavorites(navController: NavController, routeScre
 }
 
 @FlowPreview
-private fun NavGraphBuilder.addTickets(routeScreen: RouteScreen) {
+private fun NavGraphBuilder.addTickets(navController: NavController, routeScreen: RouteScreen) {
     composable(route = ListScreen.Ticket.createRoute(routeScreen)) {
-        SeriesScreen()
+        SeriesScreen(openMovieDetails = {
+            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, it))
+        })
     }
 }
 
