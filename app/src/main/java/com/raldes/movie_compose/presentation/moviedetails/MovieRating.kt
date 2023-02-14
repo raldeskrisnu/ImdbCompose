@@ -17,7 +17,7 @@ import com.raldes.domain.model.Movie
 import com.raldes.movie_compose.utils.isNotNullOrEmpty
 
 @Composable
-fun MovieRating(movie: Movie) {
+fun MovieRating(releaseDate: String?, voteAccount: Int?, voteAverage: Double?) {
 
     Column(modifier = Modifier.fillMaxWidth()) {
 
@@ -25,9 +25,9 @@ fun MovieRating(movie: Movie) {
             .padding(16.dp)
             .fillMaxWidth()) {
 
-            if(movie.releaseDate.isNotNullOrEmpty()) {
+            if(releaseDate.isNotNullOrEmpty()) {
                 Icon(imageVector = Icons.Default.DateRange, contentDescription = null)
-                movie.releaseDate?.let {
+                releaseDate?.let {
                     Text(text = it,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(horizontal = 5.dp)
@@ -36,7 +36,7 @@ fun MovieRating(movie: Movie) {
                 Spacer(modifier = Modifier.weight(1f))
             }
 
-            movie.voteAccount?.let {
+            voteAccount?.let {
                 Icon(imageVector = Icons.Default.People, contentDescription = null)
                 Text(text = "${it} votes",
                     textAlign = TextAlign.Center,
@@ -44,7 +44,7 @@ fun MovieRating(movie: Movie) {
                 Spacer(modifier = Modifier.weight(1f))
             }
 
-            movie.voteAverage?.let {
+            voteAverage?.let {
                 Icon(imageVector = Icons.Default.StarRate, contentDescription = null)
                 Text(text = "${it} Averages",
                     textAlign = TextAlign.Center,

@@ -43,9 +43,10 @@ fun Navigation(navHostController: NavHostController) {
             addMovieDetail(navHostController, RouteScreen.Favorite)
         }
 
-        navigation(route = RouteScreen.Ticket.route,
-        startDestination = ListScreen.Ticket.createRoute(RouteScreen.Ticket)) {
-            addTickets(navHostController,RouteScreen.Ticket)
+        navigation(route = RouteScreen.Series.route,
+        startDestination = ListScreen.Series.createRoute(RouteScreen.Series)) {
+            addSeries(navHostController,RouteScreen.Series)
+            addMovieDetail(navHostController,RouteScreen.Series)
         }
     }
 }
@@ -82,10 +83,10 @@ private fun NavGraphBuilder.addFavorites(navController: NavController, routeScre
 }
 
 @FlowPreview
-private fun NavGraphBuilder.addTickets(navController: NavController, routeScreen: RouteScreen) {
-    composable(route = ListScreen.Ticket.createRoute(routeScreen)) {
+private fun NavGraphBuilder.addSeries(navController: NavController, routeScreen: RouteScreen) {
+    composable(route = ListScreen.Series.createRoute(routeScreen)) {
         SeriesScreen(openMovieDetails = {
-            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, it))
+            navController.navigate(ListScreen.MovieDetails.createRoute(routeScreen, it, true))
         })
     }
 }
@@ -94,6 +95,8 @@ private fun NavGraphBuilder.addMovieDetail(navController: NavController, rootScr
     composable(route = ListScreen.MovieDetails.createRoute(rootScreen),
                 arguments = listOf(navArgument("movieId") {
                     NavType.LongType
+                }, navArgument("isSeries") {
+                    NavType.BoolType
                 })
     ) {
         MovieDetailScreen(onBackPressed = {

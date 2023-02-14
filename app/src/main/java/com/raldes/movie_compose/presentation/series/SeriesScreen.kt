@@ -1,5 +1,6 @@
 package com.raldes.movie_compose.presentation.series
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -53,7 +54,10 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel(),
                                 series?.posterUrl?.let {
                                         SeriesItem(modifier = Modifier
                                             .height(220.dp)
-                                            .width(250.dp),
+                                            .width(250.dp)
+                                            .clickable {
+                                                openMovieDetails(series.id)
+                                            },
                                             it
                                         )
                                     }
@@ -101,7 +105,10 @@ fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel(),
                                 topRatedTvSeries?.posterUrl?.let {
                                     SeriesItem(modifier = Modifier
                                         .height(200.dp)
-                                        .width(130.dp),
+                                        .width(130.dp)
+                                        .clickable {
+                                            openMovieDetails(topRatedTvSeries.id)
+                                        },
                                         it
                                     )
                                 }

@@ -1,6 +1,5 @@
 package com.raldes.movie_compose.presentation
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,11 +26,11 @@ import kotlinx.coroutines.FlowPreview
 fun MainScreen () {
 
     val navController = rememberNavController()
-    val rootsScreens = listOf(RouteScreen.Discover, RouteScreen.Ticket,RouteScreen.Favorite)
+    val rootsScreens = listOf(RouteScreen.Discover, RouteScreen.Series,RouteScreen.Favorite)
 
     val mainRoutes = listOf(
         ListScreen.Discover.createRoute(RouteScreen.Discover),
-        ListScreen.Ticket.createRoute(RouteScreen.Ticket),
+        ListScreen.Series.createRoute(RouteScreen.Series),
         ListScreen.Favorite.creteRoute(RouteScreen.Favorite))
 
     val currentBackStackEntry by navController.currentBackStackEntryAsState()

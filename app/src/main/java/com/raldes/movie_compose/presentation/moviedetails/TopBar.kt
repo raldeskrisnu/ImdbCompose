@@ -19,7 +19,8 @@ fun TopBar(
     isFavorite:Boolean,
     isFavoriteLoading:Boolean,
     onFavoriteClicked: () -> Unit,
-    upPressed: () -> Unit) {
+    upPressed: () -> Unit,
+    isSeries: Boolean = false) {
 
     TopAppBar(contentColor = Color.White,
         title = {
@@ -42,16 +43,19 @@ fun TopBar(
                     strokeWidth = 2.dp
                 )
             }
-            IconButton(
-                onClick = onFavoriteClicked,
-                content = {
-                    Icon(
-                        imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                        contentDescription = "Favorite Icon",
-                        tint = Color.White
-                    )
-                }
-            )
+            if(!isSeries) {
+                IconButton(
+                    onClick = onFavoriteClicked,
+                    content = {
+                        Icon(
+                            imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                            contentDescription = "Favorite Icon",
+                            tint = Color.White
+                        )
+                    }
+                )
+            }
+
         }
     )
 }

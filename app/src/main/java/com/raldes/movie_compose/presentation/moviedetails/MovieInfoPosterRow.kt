@@ -13,12 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
+import com.raldes.domain.model.Genre
 import com.raldes.domain.model.MovieDetails
 import com.raldes.movie_compose.presentation.ui.Poster
 
 @Composable
 fun MovieInfoPosterRow(
-    movieDetails: MovieDetails
+    posterUrl: String?,
+    listGenres: List<Genre>,
+    title: String?
 ) {
     Row(
         modifier = Modifier
@@ -27,24 +30,25 @@ fun MovieInfoPosterRow(
     ) {
 
         Poster(
-            posterUrl = movieDetails.movies.posterUrl,
+            posterUrl = posterUrl,
             modifier = Modifier
                 .weight(2f)
                 .aspectRatio(2 / 3f)
         )
 
-        MovieInfo(movieDetails = movieDetails,
+        MovieInfo(listGenres = listGenres,
                     modifier = Modifier
                         .weight(3f)
-                        .padding(start = 16.dp))
+                        .padding(start = 16.dp),
+                    title = title)
     }
 }
 
 @Composable
-private fun MovieInfo(movieDetails: MovieDetails, modifier: Modifier = Modifier) {
+private fun MovieInfo(listGenres: List<Genre>, modifier: Modifier = Modifier, title: String?) {
     Column(modifier = modifier.fillMaxWidth()) {
         Text(modifier = Modifier.fillMaxWidth(),
-            text = movieDetails.movies.title ?: "",
+            text = title ?: "",
             style = MaterialTheme.typography.h6)
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -53,7 +57,7 @@ private fun MovieInfo(movieDetails: MovieDetails, modifier: Modifier = Modifier)
             mainAxisSpacing = 4.dp,
             crossAxisSpacing = 8.dp,
         ) {
-            movieDetails.genres.forEach {
+            listGenres.forEach {
                 if (it.name != null) GenreCompose(genreName = it.name!!)
             }
         }

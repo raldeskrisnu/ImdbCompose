@@ -27,6 +27,7 @@ class MovieDetailViewModel @Inject constructor(
 ): ViewModel() {
 
     val movId: String? = stateHandle["movieId"]
+    val isSeries: String? = stateHandle["isSeries"]
     var movieDetails: MovieDetails? by mutableStateOf(null)
     var seriesDetails: SeriesDetails? by mutableStateOf(null)
     var isLoading: Boolean by mutableStateOf(false)
@@ -37,11 +38,11 @@ class MovieDetailViewModel @Inject constructor(
 
 
     init {
-        getMovieDetailsById(movId?.toLong())
+        getMovieDetailsById(movId?.toLong(), isSeries = isSeries.toBoolean())
         getMoviesFavoriteById(movId?.toLong())
     }
 
-    private fun getMovieDetailsById(movieId: Long?, isSeries: Boolean = false) {
+    private fun getMovieDetailsById(movieId: Long?, isSeries: Boolean) {
         viewModelScope.launch {
             isLoading = true
             try {

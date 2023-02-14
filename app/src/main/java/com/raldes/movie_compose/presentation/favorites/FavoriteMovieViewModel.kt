@@ -1,21 +1,14 @@
 package com.raldes.movie_compose.presentation.favorites
 
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
 import com.raldes.domain.model.Movie
 import com.raldes.domain.usecase.GetAllFavoriteMoviesUseCase
-import com.raldes.domain.usecase.GetFavoriteMoviesByIdUseCase
-import com.raldes.domain.usecase.SaveFavoriteMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject

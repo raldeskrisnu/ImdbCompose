@@ -12,7 +12,7 @@ sealed class RouteScreen(val route: String, val label: String, val icon: ImageVe
 
     object Favorite: RouteScreen(route = "favorites", label = "Favorites", Icons.Default.Favorite)
 
-    object Ticket: RouteScreen(route = "series", label = "Series", Icons.Default.Tv)
+    object Series: RouteScreen(route = "series", label = "Series", Icons.Default.Tv)
 }
 
 sealed class ListScreen(val route: String) {
@@ -29,14 +29,14 @@ sealed class ListScreen(val route: String) {
         fun creteRoute(root: RouteScreen) = "${root.route}/$route"
     }
 
-    object Ticket: ListScreen("series") {
+    object Series: ListScreen("series") {
         fun createRoute(root: RouteScreen) = "${root.route}/$route"
     }
 
-    object MovieDetails: ListScreen("movie/{movieId}") {
+    object MovieDetails: ListScreen("movie/{movieId}/{isSeries}") {
         fun createRoute(root: RouteScreen) = "${root.route}/$route"
-        fun createRoute(root:RouteScreen, movieId: Long): String {
-            return "${root.route}/movie/$movieId"
+        fun createRoute(root:RouteScreen, movieId: Long, isSeries: Boolean = false): String {
+            return "${root.route}/movie/$movieId/$isSeries"
         }
     }
 }

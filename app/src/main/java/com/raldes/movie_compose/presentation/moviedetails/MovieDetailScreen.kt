@@ -24,9 +24,7 @@ import com.raldes.movie_compose.presentation.ui.moviesFontFamily
 @Composable
 fun MovieDetailScreen(
     movieDetailViewModel: MovieDetailViewModel = hiltViewModel(),
-    onBackPressed: () -> Unit,
-    isSeries: Boolean = false
-) {
+    onBackPressed: () -> Unit) {
 
     val scrollState = rememberScrollState()
 
@@ -37,7 +35,8 @@ fun MovieDetailScreen(
             upPressed = onBackPressed,
             isFavorite = movieDetailViewModel.isFavorite == true,
             isFavoriteLoading = movieDetailViewModel.isFavoriteLoading,
-            onFavoriteClicked = { movieDetailViewModel.saveFavoriteMovie() })
+            onFavoriteClicked = { movieDetailViewModel.saveFavoriteMovie() },
+            isSeries = movieDetailViewModel.isSeries.toBoolean())
     }, content = { padding ->
         Column(
             Modifier
@@ -54,24 +53,41 @@ fun MovieDetailScreen(
                     }
                 }
 
-                movieDetailViewModel.movieDetails?.let { details ->
+                if(movieDetailViewModel.isSeries.toBoolean()) {
+                    movieDetailViewModel.seriesDetails?.let { details ->
 
-                    //banner section
-                    MovieDetailBackdrop(details.movies.backdropUrl)
+                        //banner section
+                        MovieDetailBackdrop(details.series.backdropUrl)
 
-                    //poster section
-                    MovieInfoPosterRow(details)
-                    MovieRating(details.movies)
+                        //poster section
+                        MovieInfoPosterRow(details.series.posterUrl, details.genres, details.series.title)
+                        MovieRating(details.series.firstAirDate, null, details.series.voteAverage)
 
-                    //header section
-                    details.movies.overview?.let {
-                        MovieHeader(stringResource(id = R.string.sinopsys))
-                        Overview(it)
+                        //header section
+                        details.series.overview?.let {
+                            MovieHeader(stringResource(id = R.string.sinopsys))
+                            Overview(it)
+                        }
                     }
+                } else {
+                    movieDetailViewModel.movieDetails?.let { details ->
 
-                    //cast section
-                    CastSection(details.cast)
+                        //banner section
+                        MovieDetailBackdrop(details.movies.backdropUrl)
 
+                        //poster section
+                        MovieInfoPosterRow(details.movies.posterUrl, details.genres, details.movies.title)
+                        MovieRating(details.movies.releaseDate, details.movies.voteAccount, details.movies.voteAverage)
+
+                        //header section
+                        details.movies.overview?.let {
+                            MovieHeader(stringResource(id = R.string.sinopsys))
+                            Overview(it)
+                        }
+
+                        //cast section
+                        CastSection(details.cast)
+                    }
                 }
 
 
