@@ -33,3 +33,4 @@ build/
 buildSrc/build
 
 .DS_Store
+/buildSrc/build/

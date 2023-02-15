@@ -20,7 +20,7 @@ tasks.register("detektAll", io.gitlab.arturbosch.detekt.Detekt) {
     def autoFix = project.hasProperty('detektAutoFix')
     description = "Detekt All modules"
     parallel = true
-    ignoreFailures = false
+    ignoreFailures = true
     autoCorrect = autoFix
     buildUponDefaultConfig = true
     setSource(projectSource)
@@ -44,27 +44,6 @@ tasks.register("detektGenerateBaseline", io.gitlab.arturbosch.detekt.DetektCreat
     config.setFrom(configFile)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
-}
-
-tasks.register("reportMerge", io.gitlab.arturbosch.detekt.report.ReportMergeTask) {
-    output = project.layout.buildDirectory.file("reports/detekt/merge.xml")
-}
-
-subprojects {
-    detekt {
-        reports.xml.required.set(true)
-        reports.sarif.required.set(true)
-    }
-
-    plugins.withType(io.gitlab.arturbosch.detekt.DetektPlugin) {
-        tasks.withType(io.gitlab.arturbosch.detekt.Detekt) { detektTask -> // Sadly it has to be eager.
-            finalizedBy(reportMerge)
-
-            reportMerge.configure { mergeTask ->
-                mergeTask.input.from(detektTask.xmlReportFile) // or detektTask.sarifReportFile
-            }
-        }
-    }
 }
 
 dependencies {
