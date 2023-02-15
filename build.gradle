@@ -1,16 +1,72 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    ext {
-        compose_ui_version = '1.1.1'
-    }
-}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id 'com.android.application' version '7.3.1' apply false
     id 'com.android.library' version '7.3.1' apply false
     id 'com.google.dagger.hilt.android' version '2.44' apply false
     id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id "io.gitlab.arturbosch.detekt" version "1.22.0"
+}
+
+def projectSource = file(projectDir)
+def configFile = files("$projectDir/config/detekt.yml")
+def baselineFile = file("$projectDir/config/baseline.xml")
+def kotlinFiles = "**/*.kt"
+def resourceFiles = "**/resources/**"
+def buildFiles = "**/build/**"
+
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+tasks.register("detektAll", io.gitlab.arturbosch.detekt.Detekt) {
+    def autoFix = project.hasProperty('detektAutoFix')
+    description = "Detekt All modules"
+    parallel = true
+    ignoreFailures = false
+    autoCorrect = autoFix
+    buildUponDefaultConfig = true
+    setSource(projectSource)
+    baseline.set(baselineFile)
+    config.setFrom(configFile)
+    include(kotlinFiles)
+    exclude(resourceFiles, buildFiles)
+    reports {
+        html.enabled = true
+        xml.enabled = true
+    }
+}
+
+tasks.register("detektGenerateBaseline", io.gitlab.arturbosch.detekt.DetektCreateBaselineTask) {
+    description = "Detekt to generate baseline"
+    parallel = true
+    ignoreFailures = false
+    buildUponDefaultConfig = true
+    setSource(projectSource)
+    baseline.set(baselineFile)
+    config.setFrom(configFile)
+    include(kotlinFiles)
+    exclude(resourceFiles, buildFiles)
+}
+
+tasks.register("reportMerge", io.gitlab.arturbosch.detekt.report.ReportMergeTask) {
+    output = project.layout.buildDirectory.file("reports/detekt/merge.xml")
+}
+
+subprojects {
+    detekt {
+        reports.xml.required.set(true)
+        reports.sarif.required.set(true)
+    }
+
+    plugins.withType(io.gitlab.arturbosch.detekt.DetektPlugin) {
+        tasks.withType(io.gitlab.arturbosch.detekt.Detekt) { detektTask -> // Sadly it has to be eager.
+            finalizedBy(reportMerge)
+
+            reportMerge.configure { mergeTask ->
+                mergeTask.input.from(detektTask.xmlReportFile) // or detektTask.sarifReportFile
+            }
+        }
+    }
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0"
 }

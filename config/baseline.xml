@@ -1,0 +1,265 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ClassNaming:dependencies.kt$test</ID>
+    <ID>CyclomaticComplexMethod:SearchResults.kt$@Composable fun SearchMovieResults(searchTerm: String, resuls: Flow&lt;PagingData&lt;Movie&gt;&gt;, onItemClick: (movieId: Long) -&gt; Unit)</ID>
+    <ID>EmptyClassBlock:SearchResultsEmpty.kt$SearchResultsEmpty${ }</ID>
+    <ID>FunctionNaming:BottomBar.kt$@Composable fun BottomBar (navController: NavController, items: List&lt;RouteScreen&gt;)</ID>
+    <ID>FunctionNaming:CastItem.kt$@Composable fun CastItem(castName: String, imageUrl: String, size: Dp)</ID>
+    <ID>FunctionNaming:CastSection.kt$@Composable fun CastSection(listCast: List&lt;Cast&gt;)</ID>
+    <ID>FunctionNaming:DialogMessage.kt$@Composable fun DialogMessage (modifier: Modifier = Modifier, message: String, onRetry: () -&gt; Unit)</ID>
+    <ID>FunctionNaming:FavoritesMovieScreen.kt$@Composable fun FavoritesMovieScreen(viewModel: FavoriteMovieViewModel = hiltViewModel(), gotoMovieDetails: (movieId: Long) -&gt; Unit)</ID>
+    <ID>FunctionNaming:HomeItem.kt$@Composable fun HomeItem( movie: Movie, modifier: Modifier = Modifier, onMovieClick: (id: Long) -&gt; Unit)</ID>
+    <ID>FunctionNaming:HomeMovieScreen.kt$@Composable fun HomeMovieScreen(viewModel: HomeViewModel = hiltViewModel(), gotoDetailScreen: (movieId: Long) -&gt; Unit, gotoSearchScreen: () -&gt; Unit)</ID>
+    <ID>FunctionNaming:Loading.kt$@Composable @Preview fun Loading()</ID>
+    <ID>FunctionNaming:MainScreen.kt$@ExperimentalAnimationApi @ExperimentalComposeUiApi @FlowPreview @Composable @Preview fun MainScreen ()</ID>
+    <ID>FunctionNaming:MovieDetailBackdrop.kt$@Composable fun MovieDetailBackdrop(imgUrl: String)</ID>
+    <ID>FunctionNaming:MovieDetailScreen.kt$@Composable fun MovieDetailScreen( movieDetailViewModel: MovieDetailViewModel = hiltViewModel(), onBackPressed: () -&gt; Unit)</ID>
+    <ID>FunctionNaming:MovieHeader.kt$@Composable fun MovieHeader(title: String)</ID>
+    <ID>FunctionNaming:MovieInfoPosterRow.kt$@Composable fun MovieInfoPosterRow( posterUrl: String?, listGenres: List&lt;Genre&gt;, title: String? )</ID>
+    <ID>FunctionNaming:MovieInfoPosterRow.kt$@Composable private fun GenreCompose(genreName: String)</ID>
+    <ID>FunctionNaming:MovieInfoPosterRow.kt$@Composable private fun MovieInfo(listGenres: List&lt;Genre&gt;, modifier: Modifier = Modifier, title: String?)</ID>
+    <ID>FunctionNaming:MovieRating.kt$@Composable fun MovieRating(releaseDate: String?, voteAccount: Int?, voteAverage: Double?)</ID>
+    <ID>FunctionNaming:Navigation.kt$@ExperimentalAnimationApi @ExperimentalComposeUiApi @FlowPreview @Composable fun Navigation(navHostController: NavHostController)</ID>
+    <ID>FunctionNaming:Overview.kt$@Composable fun Overview(overview: String)</ID>
+    <ID>FunctionNaming:PagingLoadState.kt$@Composable fun PagingLoadState(modifier: Modifier)</ID>
+    <ID>FunctionNaming:Placeholder.kt$@Composable @Preview fun Placeholder(modifier: Modifier = Modifier)</ID>
+    <ID>FunctionNaming:PopupMessages.kt$@Composable fun PopupMessages (@StringRes resId: Int)</ID>
+    <ID>FunctionNaming:Poster.kt$@Composable fun Poster( posterUrl: String?, modifier: Modifier = Modifier)</ID>
+    <ID>FunctionNaming:PosterItemDetail.kt$@Composable fun PosterDetails( movie: Movie, modifier: Modifier = Modifier)</ID>
+    <ID>FunctionNaming:SearchMovieScreen.kt$@OptIn(ExperimentalComposeUiApi::class) @Composable fun SearchMovieScreen( onBackPressed:() -&gt; Unit, viewModel: SearchViewModel = hiltViewModel(), openMovieDetails: (movieId: Long) -&gt; Unit)</ID>
+    <ID>FunctionNaming:SearchMovieTextField.kt$@Composable fun SearchMovieTextField(value: TextFieldValue, onValueChange: (TextFieldValue) -&gt; Unit)</ID>
+    <ID>FunctionNaming:SearchResults.kt$@Composable fun SearchMovieResults(searchTerm: String, resuls: Flow&lt;PagingData&lt;Movie&gt;&gt;, onItemClick: (movieId: Long) -&gt; Unit)</ID>
+    <ID>FunctionNaming:SeriesItem.kt$@Composable fun SeriesItem(modifier: Modifier, bannerUrl: String)</ID>
+    <ID>FunctionNaming:SeriesPoster.kt$@Composable fun SeriesPoster(modifier: Modifier)</ID>
+    <ID>FunctionNaming:SeriesScreen.kt$@Composable fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel(), openMovieDetails: (movieId: Long) -&gt; Unit)</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun MoviecomposeTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -&gt; Unit)</ID>
+    <ID>FunctionNaming:TopBar.kt$@Composable fun TopBar( title:String, isFavorite:Boolean, isFavoriteLoading:Boolean, onFavoriteClicked: () -&gt; Unit, upPressed: () -&gt; Unit, isSeries: Boolean = false)</ID>
+    <ID>InvalidPackageDeclaration:MainScreen.kt$package com.raldes.movie_compose.presentation</ID>
+    <ID>LongMethod:SearchResults.kt$@Composable fun SearchMovieResults(searchTerm: String, resuls: Flow&lt;PagingData&lt;Movie&gt;&gt;, onItemClick: (movieId: Long) -&gt; Unit)</ID>
+    <ID>LongMethod:SeriesScreen.kt$@Composable fun SeriesScreen(viewModel: SeriesViewModel = hiltViewModel(), openMovieDetails: (movieId: Long) -&gt; Unit)</ID>
+    <ID>MagicNumber:Color.kt$0xFF03DAC5</ID>
+    <ID>MagicNumber:Color.kt$0xFF161616</ID>
+    <ID>MagicNumber:Color.kt$0xFF3700B3</ID>
+    <ID>MagicNumber:Color.kt$0xFF393939</ID>
+    <ID>MagicNumber:Color.kt$0xFF6200EE</ID>
+    <ID>MagicNumber:Color.kt$0xFF828588</ID>
+    <ID>MagicNumber:Color.kt$0xFFADBDD2</ID>
+    <ID>MagicNumber:Color.kt$0xFFBB86FC</ID>
+    <ID>MagicNumber:Color.kt$0xFFF7F7F7</ID>
+    <ID>MagicNumber:Colors.kt$Colors$0xFFEFF5FD</ID>
+    <ID>MagicNumber:Common.kt$Common$23</ID>
+    <ID>MagicNumber:Common.kt$Common$32</ID>
+    <ID>MagicNumber:FavoritesMovieScreen.kt$64</ID>
+    <ID>MagicNumber:HomeItem.kt$3f</ID>
+    <ID>MagicNumber:MovieDetailBackdrop.kt$16f</ID>
+    <ID>MagicNumber:MovieDetailBackdrop.kt$9</ID>
+    <ID>MagicNumber:MovieInfoPosterRow.kt$3f</ID>
+    <ID>MagicNumber:MovieInfoPosterRow.kt$70</ID>
+    <ID>MagicNumber:SearchViewModel.kt$SearchViewModel$300</ID>
+    <ID>MagicNumber:SplashScreenActivity.kt$SplashScreenActivity$3000</ID>
+    <ID>MaxLineLength:MovieDetailScreen.kt$val title = if(movieDetailViewModel.movieDetails?.movies?.title !=null) movieDetailViewModel.movieDetails?.movies?.title else "Details Movies"</ID>
+    <ID>MaxLineLength:SearchPagingDataSource.kt$SearchPagingDataSource$class</ID>
+    <ID>MaxLineLength:SeriesTopRatedPagingDataSource.kt$SeriesTopRatedPagingDataSource$class</ID>
+    <ID>MayBeConst:Common.kt$Common$val compileSdk = 32</ID>
+    <ID>MayBeConst:Common.kt$Common$val minSdk = 23</ID>
+    <ID>MayBeConst:Common.kt$Common$val targetSdk = 32</ID>
+    <ID>NewLineAtEndOfFile:BottomBar.kt$com.raldes.movie_compose.presentation.main.BottomBar.kt</ID>
+    <ID>NewLineAtEndOfFile:Cast.kt$com.raldes.domain.model.Cast.kt</ID>
+    <ID>NewLineAtEndOfFile:CastItem.kt$com.raldes.movie_compose.presentation.ui.CastItem.kt</ID>
+    <ID>NewLineAtEndOfFile:CastResponse.kt$com.raldes.data.response.CastResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:CastSection.kt$com.raldes.movie_compose.presentation.ui.CastSection.kt</ID>
+    <ID>NewLineAtEndOfFile:Color.kt$com.raldes.movie_compose.ui.theme.Color.kt</ID>
+    <ID>NewLineAtEndOfFile:Colors.kt$com.raldes.movie_compose.presentation.ui.Colors.kt</ID>
+    <ID>NewLineAtEndOfFile:Common.kt$.Common.kt</ID>
+    <ID>NewLineAtEndOfFile:Constant.kt$com.raldes.domain.Constant.kt</ID>
+    <ID>NewLineAtEndOfFile:CreditsResult.kt$com.raldes.data.response.CreditsResult.kt</ID>
+    <ID>NewLineAtEndOfFile:DeleteMovieByIdUseCase.kt$com.raldes.domain.usecase.DeleteMovieByIdUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:DialogMessage.kt$com.raldes.movie_compose.presentation.ui.DialogMessage.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleInstrumentedTest.kt$com.raldes.data.ExampleInstrumentedTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleInstrumentedTest.kt$com.raldes.domain.ExampleInstrumentedTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleInstrumentedTest.kt$com.raldes.movie_compose.ExampleInstrumentedTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.raldes.data.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.raldes.domain.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.raldes.movie_compose.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:FavoriteMovieViewModel.kt$com.raldes.movie_compose.presentation.favorites.FavoriteMovieViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:FavoriteTableDb.kt$com.raldes.data.datasource.local.FavoriteTableDb.kt</ID>
+    <ID>NewLineAtEndOfFile:FavoritesMovieScreen.kt$com.raldes.movie_compose.presentation.favorites.FavoritesMovieScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:Genre.kt$com.raldes.domain.model.Genre.kt</ID>
+    <ID>NewLineAtEndOfFile:GenreResponse.kt$com.raldes.data.response.GenreResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:GetAllFavoriteMoviesUseCase.kt$com.raldes.domain.usecase.GetAllFavoriteMoviesUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetFavoriteMoviesByIdUseCase.kt$com.raldes.domain.usecase.GetFavoriteMoviesByIdUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetMovieDetailByIdUseCase.kt$com.raldes.domain.usecase.GetMovieDetailByIdUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetPopularMoviesUseCase.kt$com.raldes.domain.usecase.GetPopularMoviesUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetSeriesDetailUseCase.kt$com.raldes.domain.usecase.GetSeriesDetailUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetSeriesTrendingUseCase.kt$com.raldes.domain.usecase.GetSeriesTrendingUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:GetTopRatedSeriesUseCase.kt$com.raldes.domain.usecase.GetTopRatedSeriesUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:HomeItem.kt$com.raldes.movie_compose.presentation.home.HomeItem.kt</ID>
+    <ID>NewLineAtEndOfFile:HomeMovieScreen.kt$com.raldes.movie_compose.presentation.home.HomeMovieScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:HomePagingDataSource.kt$com.raldes.movie_compose.presentation.home.HomePagingDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:HomeViewModel.kt$com.raldes.movie_compose.presentation.home.HomeViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:Loading.kt$com.raldes.movie_compose.presentation.ui.Loading.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$com.raldes.movie_compose.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:MainScreen.kt$com.raldes.movie_compose.presentation.MainScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:Movie.kt$com.raldes.domain.model.Movie.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieApp.kt$com.raldes.movie_compose.MovieApp.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDao.kt$com.raldes.data.datasource.local.MovieDao.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDataSource.kt$com.raldes.data.datasource.service.MovieDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDb.kt$com.raldes.data.datasource.local.MovieDb.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDbDataSource.kt$com.raldes.data.datasource.local.MovieDbDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDbMappers.kt$com.raldes.data.datasource.local.MovieDbMappers.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDetailBackdrop.kt$com.raldes.movie_compose.presentation.moviedetails.MovieDetailBackdrop.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDetailResponse.kt$com.raldes.data.response.MovieDetailResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDetailScreen.kt$com.raldes.movie_compose.presentation.moviedetails.MovieDetailScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDetailViewModel.kt$com.raldes.movie_compose.presentation.moviedetails.MovieDetailViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieDetails.kt$com.raldes.domain.model.MovieDetails.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieHeader.kt$com.raldes.movie_compose.presentation.moviedetails.MovieHeader.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieImpl.kt$com.raldes.domain.implement.MovieImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieInfoPosterRow.kt$com.raldes.movie_compose.presentation.moviedetails.MovieInfoPosterRow.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieMappers.kt$com.raldes.data.response.mappers.MovieMappers.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieRating.kt$com.raldes.movie_compose.presentation.moviedetails.MovieRating.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieRepository.kt$com.raldes.data.repository.MovieRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieResponse.kt$com.raldes.data.response.MovieResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieResults.kt$com.raldes.data.response.MovieResults.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieService.kt$com.raldes.data.network.MovieService.kt</ID>
+    <ID>NewLineAtEndOfFile:MovieTrailers.kt$com.raldes.domain.model.MovieTrailers.kt</ID>
+    <ID>NewLineAtEndOfFile:MoviesMapperResponse.kt$com.raldes.domain.model.MoviesMapperResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:Navigation.kt$com.raldes.movie_compose.presentation.main.Navigation.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkModule.kt$com.raldes.movie_compose.di.NetworkModule.kt</ID>
+    <ID>NewLineAtEndOfFile:Overview.kt$com.raldes.movie_compose.presentation.moviedetails.Overview.kt</ID>
+    <ID>NewLineAtEndOfFile:PagingLoadState.kt$com.raldes.movie_compose.presentation.ui.PagingLoadState.kt</ID>
+    <ID>NewLineAtEndOfFile:Placeholder.kt$com.raldes.movie_compose.presentation.ui.Placeholder.kt</ID>
+    <ID>NewLineAtEndOfFile:PopupMessages.kt$com.raldes.movie_compose.presentation.ui.PopupMessages.kt</ID>
+    <ID>NewLineAtEndOfFile:Poster.kt$com.raldes.movie_compose.presentation.ui.Poster.kt</ID>
+    <ID>NewLineAtEndOfFile:PosterItemDetail.kt$com.raldes.movie_compose.presentation.ui.PosterItemDetail.kt</ID>
+    <ID>NewLineAtEndOfFile:RepositoryModule.kt$com.raldes.movie_compose.di.RepositoryModule.kt</ID>
+    <ID>NewLineAtEndOfFile:RoomModule.kt$com.raldes.movie_compose.di.RoomModule.kt</ID>
+    <ID>NewLineAtEndOfFile:RouteScreen.kt$com.raldes.movie_compose.presentation.routing.RouteScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:SaveFavoriteMovieUseCase.kt$com.raldes.domain.usecase.SaveFavoriteMovieUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchMovieScreen.kt$com.raldes.movie_compose.presentation.search.SearchMovieScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchMovieTextField.kt$com.raldes.movie_compose.presentation.search.SearchMovieTextField.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchMovieUseCase.kt$com.raldes.domain.usecase.SearchMovieUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchPagingDataSource.kt$com.raldes.movie_compose.presentation.search.SearchPagingDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchResults.kt$com.raldes.movie_compose.presentation.search.SearchResults.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchResultsEmpty.kt$com.raldes.movie_compose.presentation.search.SearchResultsEmpty.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchViewModel.kt$com.raldes.movie_compose.presentation.search.SearchViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:Series.kt$com.raldes.domain.model.Series.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesDataSource.kt$com.raldes.data.datasource.service.SeriesDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesDetails.kt$com.raldes.domain.model.SeriesDetails.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesImpl.kt$com.raldes.domain.implement.SeriesImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesItem.kt$com.raldes.movie_compose.presentation.series.SeriesItem.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesMapperResponse.kt$com.raldes.domain.model.SeriesMapperResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesMappers.kt$com.raldes.data.response.mappers.SeriesMappers.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesPagingDataSource.kt$com.raldes.movie_compose.presentation.series.SeriesPagingDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesPoster.kt$com.raldes.movie_compose.presentation.series.SeriesPoster.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesRepository.kt$com.raldes.data.repository.SeriesRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesResponse.kt$com.raldes.data.response.SeriesResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesResults.kt$com.raldes.data.response.SeriesResults.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesScreen.kt$com.raldes.movie_compose.presentation.series.SeriesScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesService.kt$com.raldes.data.network.SeriesService.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesTopRatedPagingDataSource.kt$com.raldes.movie_compose.presentation.series.SeriesTopRatedPagingDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:SeriesViewModel.kt$com.raldes.movie_compose.presentation.series.SeriesViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:Shape.kt$com.raldes.movie_compose.ui.theme.Shape.kt</ID>
+    <ID>NewLineAtEndOfFile:SplashScreenActivity.kt$com.raldes.movie_compose.presentation.splashscreen.SplashScreenActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:TextType.kt$com.raldes.movie_compose.presentation.ui.TextType.kt</ID>
+    <ID>NewLineAtEndOfFile:Theme.kt$com.raldes.movie_compose.ui.theme.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:TopBar.kt$com.raldes.movie_compose.presentation.moviedetails.TopBar.kt</ID>
+    <ID>NewLineAtEndOfFile:TvSeriesDetails.kt$com.raldes.data.response.TvSeriesDetails.kt</ID>
+    <ID>NewLineAtEndOfFile:Type.kt$com.raldes.movie_compose.ui.theme.Type.kt</ID>
+    <ID>NewLineAtEndOfFile:VideoResponse.kt$com.raldes.data.response.VideoResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:VideoResults.kt$com.raldes.data.response.VideoResults.kt</ID>
+    <ID>NewLineAtEndOfFile:dependencies.kt$.dependencies.kt</ID>
+    <ID>PackageNaming:BottomBar.kt$package com.raldes.movie_compose.presentation.main</ID>
+    <ID>PackageNaming:CastItem.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:CastSection.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:Color.kt$package com.raldes.movie_compose.ui.theme</ID>
+    <ID>PackageNaming:Colors.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:DialogMessage.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:ExampleInstrumentedTest.kt$package com.raldes.movie_compose</ID>
+    <ID>PackageNaming:ExampleUnitTest.kt$package com.raldes.movie_compose</ID>
+    <ID>PackageNaming:FavoriteMovieViewModel.kt$package com.raldes.movie_compose.presentation.favorites</ID>
+    <ID>PackageNaming:FavoritesMovieScreen.kt$package com.raldes.movie_compose.presentation.favorites</ID>
+    <ID>PackageNaming:HomeItem.kt$package com.raldes.movie_compose.presentation.home</ID>
+    <ID>PackageNaming:HomeMovieScreen.kt$package com.raldes.movie_compose.presentation.home</ID>
+    <ID>PackageNaming:HomePagingDataSource.kt$package com.raldes.movie_compose.presentation.home</ID>
+    <ID>PackageNaming:HomeViewModel.kt$package com.raldes.movie_compose.presentation.home</ID>
+    <ID>PackageNaming:Loading.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:MainActivity.kt$package com.raldes.movie_compose</ID>
+    <ID>PackageNaming:MainScreen.kt$package com.raldes.movie_compose.presentation</ID>
+    <ID>PackageNaming:MovieApp.kt$package com.raldes.movie_compose</ID>
+    <ID>PackageNaming:MovieDetailBackdrop.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:MovieDetailScreen.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:MovieDetailViewModel.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:MovieHeader.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:MovieInfoPosterRow.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:MovieRating.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:Navigation.kt$package com.raldes.movie_compose.presentation.main</ID>
+    <ID>PackageNaming:NetworkModule.kt$package com.raldes.movie_compose.di</ID>
+    <ID>PackageNaming:Overview.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:PagingLoadState.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:Placeholder.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:PopupMessages.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:Poster.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:PosterItemDetail.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:RepositoryModule.kt$package com.raldes.movie_compose.di</ID>
+    <ID>PackageNaming:RoomModule.kt$package com.raldes.movie_compose.di</ID>
+    <ID>PackageNaming:RouteScreen.kt$package com.raldes.movie_compose.presentation.routing</ID>
+    <ID>PackageNaming:SearchMovieScreen.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SearchMovieTextField.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SearchPagingDataSource.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SearchResults.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SearchResultsEmpty.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SearchViewModel.kt$package com.raldes.movie_compose.presentation.search</ID>
+    <ID>PackageNaming:SeriesItem.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:SeriesPagingDataSource.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:SeriesPoster.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:SeriesScreen.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:SeriesTopRatedPagingDataSource.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:SeriesViewModel.kt$package com.raldes.movie_compose.presentation.series</ID>
+    <ID>PackageNaming:Shape.kt$package com.raldes.movie_compose.ui.theme</ID>
+    <ID>PackageNaming:SplashScreenActivity.kt$package com.raldes.movie_compose.presentation.splashscreen</ID>
+    <ID>PackageNaming:StringExt.kt$package com.raldes.movie_compose.utils</ID>
+    <ID>PackageNaming:TextType.kt$package com.raldes.movie_compose.presentation.ui</ID>
+    <ID>PackageNaming:Theme.kt$package com.raldes.movie_compose.ui.theme</ID>
+    <ID>PackageNaming:TopBar.kt$package com.raldes.movie_compose.presentation.moviedetails</ID>
+    <ID>PackageNaming:Type.kt$package com.raldes.movie_compose.ui.theme</ID>
+    <ID>TooGenericExceptionCaught:HomePagingDataSource.kt$HomePagingDataSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MovieDetailViewModel.kt$MovieDetailViewModel$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SearchPagingDataSource.kt$SearchPagingDataSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SeriesPagingDataSource.kt$SeriesPagingDataSource$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SeriesTopRatedPagingDataSource.kt$SeriesTopRatedPagingDataSource$e: Exception</ID>
+    <ID>UnusedPrivateMember:SearchResults.kt$searchTerm: String</ID>
+    <ID>VariableNaming:HomePagingDataSource.kt$HomePagingDataSource$private val INDEX = 1</ID>
+    <ID>VariableNaming:SearchPagingDataSource.kt$SearchPagingDataSource$private val STARTING_PAGE_INDEX = 1</ID>
+    <ID>VariableNaming:SeriesPagingDataSource.kt$SeriesPagingDataSource$private val INDEX = 1</ID>
+    <ID>VariableNaming:SeriesTopRatedPagingDataSource.kt$SeriesTopRatedPagingDataSource$private val INDEX = 1</ID>
+    <ID>WildcardImport:BottomBar.kt$import androidx.compose.material.*</ID>
+    <ID>WildcardImport:CastItem.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:CastItem.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:CastSection.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:DialogMessage.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:ExampleInstrumentedTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:HomeItem.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:HomeMovieScreen.kt$import androidx.compose.material.*</ID>
+    <ID>WildcardImport:MovieDetailBackdrop.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:MovieDetailViewModel.kt$import com.raldes.domain.usecase.*</ID>
+    <ID>WildcardImport:MovieInfoPosterRow.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:MovieMappers.kt$import com.raldes.domain.model.*</ID>
+    <ID>WildcardImport:MovieRating.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:Navigation.kt$import androidx.navigation.*</ID>
+    <ID>WildcardImport:Poster.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:PosterItemDetail.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:RouteScreen.kt$import androidx.compose.material.icons.filled.*</ID>
+    <ID>WildcardImport:SearchMovieScreen.kt$import androidx.compose.material.*</ID>
+    <ID>WildcardImport:SearchMovieScreen.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:SearchMovieTextField.kt$import androidx.compose.material.*</ID>
+    <ID>WildcardImport:SeriesItem.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:SeriesMappers.kt$import com.raldes.domain.model.*</ID>
+    <ID>WildcardImport:SeriesPoster.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:SeriesScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:SeriesScreen.kt$import androidx.compose.material.*</ID>
+    <ID>WildcardImport:TopBar.kt$import androidx.compose.material.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
