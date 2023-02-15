@@ -12,6 +12,7 @@ Project build with full jetpack compose and navigation compose
 - Coil for compose
 - Hilt
 - Modularization
+- Detekt
 
 ### Features
 - Home
@@ -20,8 +21,5 @@ Project build with full jetpack compose and navigation compose
 - Series
 
 ### What's Next
-- Add Cast on movie :white_check_mark:
-- Add more series
-- Detekt
 - Unit test
 - build.properties
